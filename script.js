@@ -1,7 +1,7 @@
 const principal = document.getElementById('principal');
 const colors = document.getElementById('colors');
 
-// Divs das colors
+// Divs of colors
 for(let index = 0; index <= 6; index += 1) {
   let createColors = document.createElement('div');
   colors.appendChild(createColors);
@@ -22,6 +22,7 @@ function chooseColorPalette() {
 
 chooseColorPalette()
 
+// create pixels
 function createPixel() {
 const numberLines = 5;
 const pixelBoard = document.getElementById('pixel-board')
@@ -38,11 +39,42 @@ for (let index = 0; index < numberLines; index += 1) {
 }
 }
 
+// change selected
+const allColors = document.querySelectorAll('#colors .color');
+
+function changeSelected(event) {
+  document.querySelector('.selected').classList.remove('selected');
+  event.target.classList.add('selected');
+
+}
+
+function addClass() {
+    for (let index = 0; index < allColors.length; index += 1) {
+      allColors[index].addEventListener('click', changeSelected);
+    }
+}
 
 
-createPixel()
+// change Color of Pixel
+
+function changeColorPixel(event) {
+  const selected = document.querySelector('.selected').style.backgroundColor;
+  const click = event.target;
+  click.style.backgroundColor = selected;
+}
+function changeColor() {
+  const pixels = document.querySelectorAll('.pixel');
+  for (let index = 0; index < pixels.length; index += 1) {
+    pixels[index].addEventListener('click', changeColorPixel);
+  }
+}
+
+
 
 window.onload = () => {
+  addClass()
   createPixel();
   chooseColorPalette()
+  changeColor()
+  changeColorPixel();
 }
