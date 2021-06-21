@@ -15,7 +15,7 @@
 #title {
   font-family: 'Press Start 2P', cursive;
   font-size: 20px;
-  margin-left: 15px;
+  margin-left: 20px;
   text-shadow: 3px 3px white;
 }
 
@@ -84,9 +84,27 @@
 }
 
 .color {
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
   border: black 2px solid;
   margin: 4px;
   border-radius: 6px;
 } 
+
+#pixel-board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  border-spacing: 0;
+}
+
+.pixel {
+  height: 40px;
+  width: 40px;
+  border: 1px black solid;
+}
+
+.pixels {
+  padding: 0;
+}

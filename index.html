@@ -13,10 +13,10 @@
     <h1 id="title">Pixel Art</h1>
     <div id="buttons">
       <button class="generate-color">Generate Color</button>
-      <button id="clear-button">Clear</button>
+      <button id="clear-button">Clean</button>
       <div id="board-size">
-        <input type="number" class="size"> Board Size
-        <input type="number" class="size"> Pixel Size
+        <input type="number" class="size" minlength="0" maxlength="50"> Board Size
+        <input type="number" class="size" minlength="0" maxlength="50"> Pixel Size
         <button id="create-size">Create-Size</button>
       </div>
     </div>
@@ -25,6 +25,10 @@
     <section id="colors">
       
     </section>
+
+    <table id="pixel-board">
+
+    </table>
   </main>
   <script src="script.js"></script>
 </body>
