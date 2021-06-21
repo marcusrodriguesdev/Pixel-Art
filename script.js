@@ -54,13 +54,11 @@ function addClass() {
     }
 }
 
-
 // change Color of Pixel
 
 function changeColorPixel(event) {
   const selected = document.querySelector('.selected').style.backgroundColor;
-  const click = event.target;
-  click.style.backgroundColor = selected;
+  event.target.style.backgroundColor = selected;
 }
 function changeColor() {
   const pixels = document.querySelectorAll('.pixel');
@@ -69,7 +67,29 @@ function changeColor() {
   }
 }
 
+// clear pixel
+function cleanPixels() {
+  const pixels1 =  document.querySelectorAll('.pixel');
+  for(let index = 0; index < pixels1.length; index += 1) {
+    pixels1[index].style.backgroundColor = 'white';
+  }
+}
 
+document.getElementById('clear-button').addEventListener('click', cleanPixels);
+
+// change board size
+
+
+const resizeBtn = document.querySelector('.size');
+resizeBtn.addEventListener('click', () => {
+  const input = document.querySelector('.size');
+  if (input.value !== '') {
+    removePixel();
+    createPixels(input.value);
+  } else {
+    alert('Board inválido!');
+  }
+});
 
 window.onload = () => {
   addClass()
