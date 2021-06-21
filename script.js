@@ -11,6 +11,7 @@ for(let index = 0; index <= 6; index += 1) {
 function chooseColorPalette() {
   const colors = document.getElementsByClassName('color'); 
   colors[0].style.backgroundColor = 'black'; 
+  colors[0].className = 'color selected'
   for (let index = 1; index < colors.length; index += 1) { 
     const randomRed = Math.random() * 256; 
     const randomGreen = Math.random() * 256;
@@ -36,6 +37,8 @@ for (let index = 0; index < numberLines; index += 1) {
   }
 }
 }
+
+
 
 createPixel()
 
