@@ -77,19 +77,60 @@ function cleanPixels() {
 
 document.getElementById('clear-button').addEventListener('click', cleanPixels);
 
-// change board size
+// Create Board-Size
+const defineSizeButton = document.querySelector('#create-size');
+const defaultSizeButton = document.querySelector('#default-size-btn');
+const inputSize = document.querySelector('.size');
 
-
-const resizeBtn = document.querySelector('.size');
-resizeBtn.addEventListener('click', () => {
-  const input = document.querySelector('.size');
-  if (input.value !== '') {
-    removePixel();
-    createPixels(input.value);
-  } else {
-    alert('Board inválido!');
+function defineTableSize() {
+  const table = document.getElementById('pixel-board');
+  table.innerHTML = '';
+  for (let index = 0; index < inputSize.value; index += 1) {
+    const newPixelsRow = document.createElement('tr');
+    table.appendChild(newPixelsRow);
+    for (let index1 = 0; index1 < inputSize.value; index1 += 1) {
+      const newPixel = document.createElement('td');
+      newPixel.className = ('pixel');
+      newPixelsRow.appendChild(newPixel);
+      newPixel.addEventListener('click', changeColorPixel);
+    }
   }
-});
+}
+
+defineSizeButton.addEventListener('click', defineTableSize);
+
+// Tamanho maximo da table
+function maxTableSize() {
+  const table = document.getElementById('pixel-board');
+  table.innerHTML = '';
+  const rowsAndColumns = 50;
+  for (let index = 0; index < rowsAndColumns; index += 1) {
+    const pixelsRow = document.createElement('tr');
+    table.appendChild(pixelsRow);
+    for (let index1 = 0; index1 < rowsAndColumns; index1 += 1) {
+      const pixel = document.createElement('td');
+      pixel.className = ('pixel');
+      pixelsRow.appendChild(pixel);
+      pixel.addEventListener('click', changeColorPixel);
+    }
+  }
+}
+
+function boardLimitSize() {
+  if (inputSize.value < 5) {
+    alert('board inválido! Valor menor que 5');
+    initialTableSize();
+  }
+
+  if (inputSize.value > 25) {
+    alert('board inválido! Valor maior que 25');
+    maxTableSize();
+  }
+}
+
+defineSizeButton.addEventListener('click', boardLimitSize);
+
+
 
 window.onload = () => {
   addClass()

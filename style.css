@@ -7,9 +7,10 @@
 #cabecalho {
   display: flex;
   height: 80px;
-  background-color: #bdb2ff;
+  background-color: #cbf3f0;
   align-items: center;
   justify-content: space-between;
+  border-bottom: 4px black solid;
 }
 
 #title {
@@ -96,9 +97,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 35px;
+  margin-top: 15px;
   border-spacing: 0;
-  max-width: 100%;
+  box-shadow: 0 0 1em black;
+  padding: 20px;
+  margin-left: 250px;
+  margin-right: 250px;
 }
 
 .pixel {
